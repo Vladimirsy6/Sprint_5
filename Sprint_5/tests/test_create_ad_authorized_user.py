@@ -33,10 +33,9 @@ class TestCreateAd:
         driver.find_element(*Locators.AD_CONDITION_NEW_RADIO).click()
         driver.find_element(*Locators.PUBLISH_BUTTON).click()
 
-        # Скролл вверх и переход в профиль
-        driver.execute_script("window.scrollTo(0, 0);")
+        # Переход в профиль
         wait.until(EC.presence_of_element_located(Locators.HOME_PAGE))
-        wait.until(EC.element_to_be_clickable(Locators.USER_AVATAR)).click()
+        driver.find_element(*Locators.USER_AVATAR).click()
 
         # Ждём загрузки профиля и раздела объявлений
         my_ads_section = wait.until(EC.presence_of_element_located(Locators.USER_ADS_SECTION))
