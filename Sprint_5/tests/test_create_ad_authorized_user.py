@@ -43,7 +43,6 @@ class TestCreateAd:
         # Считываем заголовки объявлений
         ad_titles = my_ads_section.find_elements(*Locators.USER_AD_TITLE)
         titles_text = [el.text for el in ad_titles]
-        print(titles_text)  # можно убрать после стабилизации теста
 
         assert any("Тестовое объявление" in title for title in titles_text), \
             "Созданное объявление не отображается в профиле"
