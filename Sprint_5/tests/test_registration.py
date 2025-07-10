@@ -2,13 +2,13 @@ import time
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from Sprint_5.locators.locators import Locators
-from Sprint_5.conftest import driver
+from Sprint_5.conftest import driver, BASE_URL
 
 class TestRegistration:
 
     # Регистрация пользователя
     def test_registration_success(self, driver):
-        driver.get("https://qa-desk.stand.praktikum-services.ru/")
+        driver.get(BASE_URL)
 
         wait = WebDriverWait(driver, 10)
         wait.until(EC.element_to_be_clickable(Locators.LOGIN_REGISTER_BUTTON)).click()
@@ -32,7 +32,7 @@ class TestRegistration:
 
     # Регистрация пользователя c email не по маске  *******@*******.***
     def test_registration_invalid_email(self, driver):
-        driver.get("https://qa-desk.stand.praktikum-services.ru/")
+        driver.get(BASE_URL)
 
         wait = WebDriverWait(driver, 10)
         wait.until(EC.element_to_be_clickable(Locators.LOGIN_REGISTER_BUTTON)).click()
@@ -51,7 +51,7 @@ class TestRegistration:
 
     # Регистрация уже существующего пользователя
     def test_registration_existing_user(self, driver):
-        driver.get("https://qa-desk.stand.praktikum-services.ru/")
+        driver.get(BASE_URL)
 
         wait = WebDriverWait(driver, 10)
         wait.until(EC.element_to_be_clickable(Locators.LOGIN_REGISTER_BUTTON)).click()

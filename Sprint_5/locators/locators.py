@@ -3,67 +3,67 @@ from selenium.webdriver.common.by import By
 
 class Locators:
     # Кнопка "Войти / Зарегистрироваться" на главной
-    LOGIN_REGISTER_BUTTON = (By.XPATH, '/html/body/div/div/div[1]/div/button[1]')
+    LOGIN_REGISTER_BUTTON = (By.XPATH, '//button[text()="Вход и регистрация"]')
 
     # Кнопка "У меня нет аккаунта"
-    NO_ACCOUNT_BUTTON = (By.XPATH, '//*[@id="root"]/div/div[2]/div[5]/form/div[3]/button[2]')
+    NO_ACCOUNT_BUTTON = (By.XPATH, '//button[text()="Нет аккаунта"]')
 
     # Поле "Email"
-    EMAIL_INPUT = (By.XPATH, '/html/body/div/div/div[2]/div[5]/form/div[2]/div[1]/div/div/input')
+    EMAIL_INPUT = (By.CSS_SELECTOR, "input[name='email']")
 
     # Поле "Пароль"
-    PASSWORD_INPUT = (By.XPATH, '/html/body/div/div/div[2]/div[5]/form/div[2]/div[2]/div/div/input')
+    PASSWORD_INPUT = (By.XPATH, "//input[@name='password']")
 
     # Поле "Подтверждение пароля"
-    CONFIRM_PASSWORD_INPUT = (By.XPATH, '//*[@id="root"]/div/div[2]/div[5]/form/div[2]/div[3]/div/div/input')
+    CONFIRM_PASSWORD_INPUT = (By.XPATH, "//input[@name='submitPassword']")
 
     # Кнопка "Создать аккаунт"
-    CREATE_ACCOUNT_BUTTON = (By.XPATH, '//*[@id="root"]/div/div[2]/div[5]/form/div[3]/button[1]')
+    CREATE_ACCOUNT_BUTTON = (By.XPATH, "//button[@type='submit' and contains(text(), 'Создать аккаунт')]")
 
     # Кнопка "Войти"
-    LOGIN_BUTTON = (By.XPATH, '/html/body/div/div/div[2]/div[5]/form/div[3]/button[1]')
+    LOGIN_BUTTON = (By.XPATH, "//button[@type='submit' and contains(text(), 'Войти')]")
 
     # Кнопка "Выйти"
-    LOGOUT_BUTTON = (By.XPATH, '/html/body/div/div/div[1]/div/div[1]/div/button')
+    LOGOUT_BUTTON = (By.XPATH, "//button[@type='button' and text()='Выйти']")
 
     # Кнопка "Разместить объявление" (2)
-    POST_AD_BUTTON_2 = (By.XPATH, '/html/body/div/div/div[1]/div/button[2]')
+    POST_AD_BUTTON_2 = (By.XPATH, "//button[@type='button' and contains(text(), 'Разместить объявление')]")
 
     # Кнопка "Разместить объявление"
-    POST_AD_BUTTON = (By.XPATH, '/html/body/div/div/div[1]/div/button')
+    POST_AD_BUTTON = (By.XPATH, "//button[@type='button' and contains(text(), 'Разместить объявление')]")
 
     # Кнопка "Опубликовать"
-    PUBLISH_BUTTON = (By.XPATH, '/html/body/div/div/div[2]/div/form/button')
+    PUBLISH_BUTTON = (By.XPATH, "//button[@type='submit' and contains(text(), 'Опубликовать')]")
 
     # Аватар пользователя
-    USER_AVATAR = (By.XPATH, '//*[@id="root"]/div/div[1]/div/div[1]/button')
+    USER_AVATAR = (By.XPATH, "//button[contains(@class, 'circleSmall')]")
 
     # Заголовок модального окна
-    MODAL_HEADER = (By.XPATH, '/html/body/div/div/div[2]/div[5]/form/div[1]/h1')
+    MODAL_HEADER = (By.XPATH, "//h1[contains(text(), 'Чтобы разместить объявление')]")
 
     # Имя пользователя
-    USER_NAME = (By.XPATH, '/html/body/div/div/div[1]/div/div[1]/div/h3')
+    USER_NAME = (By.XPATH, "//h3[@class='profileText name']")
 
     # Сообщение об ошибке Email
     EMAIL_ERROR_MESSAGE = (By.XPATH, "//span[contains(text(),'Ошибка')]")
 
     # Поле "Название объявления"
-    AD_TITLE_INPUT = (By.XPATH, '/html/body/div/div/div[2]/div/form/div[2]/div[1]/div/div/input')
+    AD_TITLE_INPUT = (By.XPATH, "//input[@name='name']")
 
     # Поле "Описание объявления"
-    AD_DESCRIPTION_INPUT = (By.XPATH, '/html/body/div/div/div[2]/div/form/div[4]/div/textarea')
+    AD_DESCRIPTION_INPUT = (By.XPATH, "//textarea[@name='description']")
 
     # Поле "Цена"
-    AD_PRICE_INPUT = (By.XPATH, '/html/body/div/div/div[2]/div/form/div[5]/div/div/input')
+    AD_PRICE_INPUT = (By.XPATH, "//input[@name='price']")
 
     # Дропдаун категории
-    AD_CATEGORY_DROPDOWN = (By.XPATH, '/html/body/div/div/div[2]/div/form/div[2]/div[2]/div[1]/button')
+    AD_CATEGORY_DROPDOWN = (By.XPATH, "//button[contains(@class, 'dropDownMenu_arrowDown')]")
 
     # Дропдаун города
-    AD_CITY_DROPDOWN = (By.XPATH, '/html/body/div/div/div[2]/div/form/div[3]/div[1]/button')
+    AD_CITY_DROPDOWN = (By.XPATH, "(//button[contains(@class, 'dropDownMenu_arrowDown')])[2]")
 
     # Радиокнопка "Новое состояние"
-    AD_CONDITION_NEW_RADIO = (By.XPATH, '/html/body/div/div/div[2]/div/form/fieldset/div/div[2]/div')
+    AD_CONDITION_NEW_RADIO = (By.XPATH, "(//div[contains(@class, 'radioUnput_inputActive__eC-HY')])[1]")
 
     # Секция объявлений пользователя
     USER_ADS_SECTION = (By.CSS_SELECTOR, "div.grid_threeColumns__ldn5D")
@@ -72,9 +72,9 @@ class Locators:
     USER_AD_TITLE = (By.CSS_SELECTOR, "div.card div.about > h2.h2")
 
     # Опция категории в дропдауне
-    AD_CATEGORY_OPTION = (By.XPATH, '/html/body/div/div/div[2]/div/form/div[2]/div[2]/div[2]/button[2]')
+    AD_CATEGORY_OPTION = (By.XPATH, "//button[./span[contains(text(), 'Книги')]]")
 
     # Опция города в дропдауне
-    AD_CITY_OPTION = (By.XPATH, '/html/body/div/div/div[2]/div/form/div[3]/div[2]/button[2]')
+    AD_CITY_OPTION = (By.XPATH, "//button[./span[contains(text(), 'Санкт-Петербург')]]")
 
     HOME_PAGE = (By.XPATH, "//*[contains(@class, 'homePage_homepage')]")

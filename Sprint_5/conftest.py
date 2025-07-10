@@ -3,6 +3,8 @@ from selenium import webdriver
 import time
 from Sprint_5.locators.locators import Locators
 
+BASE_URL = "https://qa-desk.stand.praktikum-services.ru/"
+
 @pytest.fixture
 def driver():
     driver = webdriver.Chrome()
@@ -13,7 +15,7 @@ def driver():
 
 @pytest.fixture
 def registered_user(driver):
-    driver.get("https://qa-desk.stand.praktikum-services.ru/")
+    driver.get(BASE_URL)
     driver.find_element(*Locators.LOGIN_REGISTER_BUTTON).click()
     driver.find_element(*Locators.NO_ACCOUNT_BUTTON).click()
 
@@ -31,7 +33,7 @@ def registered_user(driver):
 def logged_in_user(driver, registered_user):
     email, password = registered_user
 
-    driver.get("https://qa-desk.stand.praktikum-services.ru/")
+    driver.get(BASE_URL)
     driver.find_element(*Locators.LOGIN_REGISTER_BUTTON).click()
     driver.find_element(*Locators.EMAIL_INPUT).send_keys(email)
     driver.find_element(*Locators.PASSWORD_INPUT).send_keys(password)

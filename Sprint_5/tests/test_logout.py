@@ -12,6 +12,8 @@ class TestLogout:
     def test_user_can_logout(self, driver, logged_in_user):
         wait = WebDriverWait(driver, 15)
 
+        wait.until(EC.presence_of_element_located(Locators.HOME_PAGE))
+
         avatar = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(Locators.USER_AVATAR))
         avatar.click()
 

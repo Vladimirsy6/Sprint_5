@@ -1,9 +1,7 @@
-import time
-
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from Sprint_5.locators.locators import Locators
-from Sprint_5.conftest import driver, logged_in_user, registered_user
+from Sprint_5.conftest import driver, logged_in_user, registered_user, BASE_URL
 
 
 class TestCreateAd:
@@ -51,7 +49,7 @@ class TestCreateAd:
     def test_create_ad_unauthorized_user(self, driver):
         wait = WebDriverWait(driver, 15)
 
-        driver.get("https://qa-desk.stand.praktikum-services.ru/")
+        driver.get(BASE_URL)
         driver.find_element(*Locators.POST_AD_BUTTON_2).click()
 
         modal_title = wait.until(EC.visibility_of_element_located(Locators.MODAL_HEADER))

@@ -2,7 +2,7 @@ import pytest
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from Sprint_5.locators.locators import Locators
-from Sprint_5.conftest import driver, registered_user
+from Sprint_5.conftest import driver, registered_user, BASE_URL
 
 @pytest.mark.usefixtures("driver")
 class TestLogin:
@@ -12,7 +12,7 @@ class TestLogin:
         email, password = registered_user
         wait = WebDriverWait(driver, 15)
 
-        driver.get("https://qa-desk.stand.praktikum-services.ru/")
+        driver.get(BASE_URL)
         driver.find_element(*Locators.LOGIN_REGISTER_BUTTON).click()
 
         driver.find_element(*Locators.EMAIL_INPUT).send_keys(email)
